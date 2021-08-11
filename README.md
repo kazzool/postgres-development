@@ -1,4 +1,4 @@
-# Mysql Development Skeleton
+# MySQL Development Skeleton
 This is a skeleton repository to start developing a database with MySQL.
 ## Requirements
 You need to be able to use "docker-compose".
