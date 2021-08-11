@@ -1,17 +1,26 @@
 version: '3.8'
 
 services:
-  database:
-    image: mysql:8.0
-    container_name: mysql
-    environment:
-        MYSQL_DATABASE: sample_db
-        MYSQL_ROOT_PASSWORD: root
-    ports:
-        - "3306:3306"
-    volumes:
-        - ./docker/database/conf.d:/etc/mysql/conf.d
-        - ./docker/database/initdb.d:/docker-entrypoint-initdb.d
-        - mysql-data:/var/lib/mysql
+    database:
+        image: mysql:8.0
+        container_name: mysql
+        environment:
+            MYSQL_DATABASE: sample_db
+            MYSQL_ROOT_PASSWORD: root
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./docker/database/conf.d:/etc/mysql/conf.d
+            - ./docker/database/initdb.d:/docker-entrypoint-initdb.d
+            - mysql-data:/var/lib/mysql
+    migrate:
+        image: openjdk:11
+        container_name: gradle-flyway
+        volumes:
+            - ./docker/migrate:/migrate:cached
+        working_dir: /migrate
+        tty: true
+        depends_on:
+            - database
 volumes: 
-  mysql-data: 
+    mysql-data: 

@@ -24,13 +24,12 @@ repositories {
 }
 
 flyway {
-    url = getProperty("${profile}.flyway.url") + "?&allowPublicKeyRetrieval=true&useSSL=false"
-    user = getProperty("${profile}.flyway.user")
-    password = getProperty("${profile}.flyway.password")
+    url = getProperty("${env()}.flyway.url") + "?&allowPublicKeyRetrieval=true&useSSL=false"
+    user = getProperty("${env()}.flyway.user")
+    password = getProperty("${env()}.flyway.password")
     baselineVersion = "00.000.000"
 }
 
-def getProfile() {
-    def profile = project.properties['env'] == null ? 'local' : project.properties['env']
-    return profile
+def env() {
+    project.hasProperty('env') ? project.properties['env'] : 'local'
 }
