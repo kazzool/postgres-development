@@ -27,8 +27,8 @@ You need to be able to use "docker-compose".
     - https://flywaydb.org/documentation/usage/gradle/
 
 ## Specify an environment identifier
-You can set multiple database connection information in `gradle.properties`.  
-The connection information defined here is used by specifying the environment name in the project property `env` when executing the gradle command as shown below. (Defaults to `local` if not set.)
+You can set multiple database connection information in `"gradle.properties"`.  
+The connection information defined here is used by specifying the environment name in the project property `"env"` when executing the gradle command as shown below. (Defaults to `"local"` if not set.)
 ```
 (Example)
 [gradle.properties]
