@@ -16,14 +16,23 @@ You need to be able to use "docker-compose".
     docker-compose exec migrate bash
     ```
 3. In the migrate container, use the gradle wrapper to run the flyway task with a command like the following.
-    ```
-    (Example)
-    ./gradlew flywayBaseline
-    ./gradlew flywayInfo -i
-    ./gradlew flywayMigrate
-    ...
-    ```
-    Flyway Tasks Reference
+    1. Create a baseline in the target database. (First time only).
+        ```
+        ./gradlew flywayBaseline
+        ```
+    2. Build the migrate file.
+        ```
+        ./gradlew build
+        ```
+    3. Check the status information of the migration.
+        ```
+        ./gradlew flywayInfo
+        ```
+    4. Execute the migration.
+        ```
+        ./gradlew flywayMigrate
+        ```
+    For more information about the Flyway task, please refer to the following.
     - https://flywaydb.org/documentation/usage/gradle/
 
 ## Specify an environment identifier
