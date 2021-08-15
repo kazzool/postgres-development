@@ -40,3 +40,7 @@ bin
 *.log
 *.swp
 *.bak
+
+# volume
+data
+logs

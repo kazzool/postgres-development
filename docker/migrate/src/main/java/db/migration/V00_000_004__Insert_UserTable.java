@@ -9,10 +9,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.PreparedStatement;
 
-public class V00_000_003__Insert_UserTable extends BaseJavaMigration {
+public class V00_000_004__Insert_UserTable extends BaseJavaMigration {
 
-    private static final String PATH = "src/main/resources/db/migration/seed/V00_000_003__Insert_UserTable.csv";
-    private static final String DB_NAME = "sample_db";
+    private static final String PATH = "src/main/resources/db/migration/seed/V00_000_004__Insert_UserTable.csv";
+    private static final String SCHEMA_NAME = "sample_schema";
     private static final String TABLE_NAME = "t_user";
     private static final String INSERT_USER = "flyway";
     private static final String SEPARATOR = ",";
@@ -34,7 +34,7 @@ public class V00_000_003__Insert_UserTable extends BaseJavaMigration {
 
                 StringBuilder sql = new StringBuilder();
                 sql.append("INSERT ");
-                sql.append("INTO " + DB_NAME + "." + TABLE_NAME + " ");
+                sql.append("INTO " + SCHEMA_NAME + "." + TABLE_NAME + " ");
                 sql.append("VALUES ( ");
                 sql.append("    ?");
                 sql.append("  , ?");
